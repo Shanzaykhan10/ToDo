@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
@@ -73,6 +74,7 @@ fun TaskCountBox(title : String) {
                 verticalAlignment = Alignment.CenterVertically,
                 content = {
                     Text(color = textColor,
+                        fontSize = 17.sp,
                         text = title,
                         modifier = Modifier
                             .padding(start = 12.dp))
@@ -98,9 +100,9 @@ fun TaskCountCircle() {
 }
 
 fun  getRandomColor() : Color {
-    val red = Random.nextInt(until = 256)
-    val green = Random.nextInt(until =  256)
-    val blue = Random.nextInt(until =  256)
+    val red = Random.nextInt(223 ,256)
+    val green = Random.nextInt(223 ,  256)
+    val blue = Random.nextInt(223, 256)
 
     return Color(red = red / 255f ,green = green / 255f ,blue = blue / 255f)
 }
@@ -110,7 +112,7 @@ fun isColorDark(color: Color) : Boolean {
     val green = color.green * 255
     val  blue = color.blue * 255
 
-    val luminance = 0.299 * red * 0.587 * green * 0.114 * blue
+    val luminance = 0.299 * red + 0.587 * green + 0.114 * blue
 
     return luminance < 128
 }

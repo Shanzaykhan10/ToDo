@@ -72,7 +72,8 @@ fun TopNavBar() {
                             {
                                 Icon(
                                     imageVector = Icons.Outlined.Notifications,
-                                    contentDescription = "Notifications"
+                                    contentDescription = "Notifications",
+                                    tint = Color.Black
                                 )
                             }
 
